@@ -42,4 +42,4 @@ alias desktop='cd ~/Desktop'
 alias dropbox="cd $dropbox"
 
 # Aliases CD Proyect paths.
-# Exmple alias whatever='cd $proyectos/whatever'
+# Exmple alias whatever="cd $proyects/whatever"
