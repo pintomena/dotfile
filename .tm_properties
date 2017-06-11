@@ -1,0 +1,58 @@
+# Basic Settings
+#
+fontName         = "Menlo"
+fontSize         = 17
+
+# Extra files to include
+#
+myExtraIncludes = ".tm_properties,.htaccess,.gitignore"
+fileBrowserGlob  = "{*,$myExtraIncludes}"
+include = "{$include,$myExtraIncludes}"
+
+# Hide log, vendor and tmp directories from search popups.
+#
+myExtraExcludes = "log,vendor,tmp,.sass-cache,.DS_Store"
+excludeInFileChooser  = "{$excludeInFileChooser,$myExtraExcludes}" 
+excludeInFolderSearch = "{$excludeInFolderSearch,$myExtraExcludes}" 
+
+# If you also want to hide them from your project manager pane, add
+# the following line to your project's local .tm_properties.
+#
+excludeInBrowser      = "{$excludeInBrowser,log,vendor,tmp}" 
+
+# Set the window title to [branchname] parentdir/filename (replacing /Users/<name> with ~)
+dir_ = "${TM_DIRECTORY/\/Users\/[^\/]+/~/}"
+branch_ = "${TM_SCM_BRANCH/(\w+)/${1:?[$1] :}/}"
+project_ = "${TM_DIRECTORY/(?:.*\/projects\/([^\/]+).*|.*\/\.virtualenvs\/[^\/]+\/(?:src|lib\/python\d\.\d\/site-packages)\/([^\/]+).*)?.*/${1:?($1) -- :${2:?($2) -- :}}/}"
+
+windowTitle = "$branch_$project_${dir_/.*?([^\/]*)$/${1:?$1/:}/}$TM_DISPLAYNAME"
+
+# Configure git
+#
+TM_GIT = "/usr/bin/git"
+
+# Default editing configuration
+#
+softWrap         = false
+softTabs         = true
+tabSize          = 4
+wrapColumn       = 100
+
+# File type specific configuration
+#
+[ text ]
+showInvisibles   = true
+
+[ .git/COMMIT_EDITMSG ]
+spellChecking    = true
+spellingLanguage = 'es'
+
+[ *.{txt,md,mdown,markdown} ]
+spellChecking  = true
+tabSize        = 4
+
+[ *.{icns,ico,jpg,jpeg,m4v,nib,pdf,png,psd,pyc,rtf,tif,tiff,xib} ]
+binary           = true
+
+[ "{README,INSTALL,LICENSE,TODO}" ]
+fileType         = "text.plain"
